@@ -6,38 +6,37 @@
 
 ### Connect to Slack
 
-First things first, you'll want to connect to the Slack space for the hackathon.  The invitation link will be sent to you or feel free to contact any NCBI person who can help.  For the fastest and best support on the information in this document, Slack is your best bet.  Look for a `#help-desk` channel once you have connected.
+First things first, you'll want to connect to the Slack space for the hackathon. The invitation link will be sent to your email that you used to register for your hackathon participation or feel free to contact NCBI hackathon leader or administrator for help. For the fastest and best support on the information in this document, Slack is your best bet. Look for a #help-desk channel once you have connected.
 
-### Create an ssh key and connect to all the things.
+### Create a github account (Github is where our projects will live)
+Go to https://github.com and select create an account.  Use an email that you can access remotely.
 
-#### Setting up a terminal environment
-
-You need an ssh key to connect to github and to access servers. There are different ways to do that; this document outlines how to use a command line for these tasks.
-
-Depending on your operating system of choice, you may already have a command line (terminal) and ssh-related tools installed (Mac, most Linux versions, newer Windows versions).  
-
-If not, you can install Git software from 
-
-* [https://git-scm.com/downloads](https://git-scm.com/downloads)
+### Create an ssh key and connect to all the things. 
+##### (what is this and why do I need to know this?)
+An ssh key is used to connect to github and to access servers. There are different ways to do that; this document outlines how to use a command line for these tasks.
+Depending on your operating system of choice, you may already have a command line (terminal) and ssh-related tools installed (Mac, most Linux versions, newer Windows versions[10 or later]).
+If not, you can install Git software from which will install a Git Bash program which when you run will provide a command line prompt for Windows
+  * https://git-scm.com/downloads
 
 (This will install on Windows machines fine even without administrator access.)
-
-Once you have git installed (it'll appear as 'git bash'), run it to open a command window.  On a mac, open "terminal". On linux, open a bash shell or your shell of choice.
-
+Once you have git installed (it'll appear as 'git bash'), run it to open a command window. On a mac, open "terminal". On linux, open a bash shell or your shell of choice. On Windows, left click the Windows symbol on the bottom left of your screen, then type in cmd in the “search programs and files” box and press the enter key.
 
 
-### Public Keys
+
+### Steps to create your public keys
+
         
 For access to GitHub and Hackathon Servers, you'll need an _ssh key_.
 
 * Feel free to read about [Generating a new SSH Key for Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), or follow the steps below.
 
-1. Open the terminal.
+1. Open the terminal or command line as described above.
 
 2. Paste the text below, substituting in your GitHub email address.
 
     > `$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
 
+    Cut and paste from the ssh…onwards, do not cut and paste the “$ “
     This creates a new ssh key, using the provided email as a label (`-C` = comment).
 
     > Note: For github keys, it's customary to use the same email as your github account. For shell access, any string will do in the comment, with `something@something-else`.  The `something` before the `@` will be your username for connecting to cloud servers.
@@ -58,7 +57,7 @@ For access to GitHub and Hackathon Servers, you'll need an _ssh key_.
 
 ### Adding Keys to Github and Gaining Server Access
 
-Now that you have created an ssh key, you need to tell Github about it and provide it to the server / cloud admins so they can grant you access.   Here's how to do that.
+Now that you have created an ssh key, you need to tell Github about it and provide it to the server / cloud admins so they can grant you access. Here's how to do that.
 
 #### Adding Keys to Github
 
@@ -66,7 +65,7 @@ Now that you have created an ssh key, you need to tell Github about it and provi
 2. Click your avatar in the top right corner of the screen, and choose "settings" from the menu.
 3. On the left side, click "SSH and GPG Keys".  You may be prompted for your password if you've been logged in for a while.
 4. Click the green "New SSH Key" button at the top of the screen.
-5. Locate the `id_rsa.pub` file you created previously (or any other custom-named public key).  Copy the entire contents of the file and paste it into the "Key" box.  Enter any string in the "Title" box as a name/label, and click "Add SSH Key" to save.
+5. Locate the `id_rsa.pub` file you created previously (or any other custom-named public key).  Copy the entire contents of the file and paste it into the "Key" box.  Enter any string in the "Title" box as a name/label, and click "Add SSH Key" to save (with Windows open with notepad – do not double click, do a single left click).
 6. For write access to the hackathon repository, you need to provide your github username to the github admin - to do that, send a message in the `#github_usernames` channel in Slack.
 7. Once you are added, you'll get an invitation email.  Open it, click the green button, and accept the invitation.
 8. Finally, open the github repository page, and click the "clone or download" button.  Copy the ssh github url (it'll look like `git@github.com:NCBI-Hackathons/TheHumanPangenome.git`), open a command prompt, and try the following command:
